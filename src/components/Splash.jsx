@@ -57,7 +57,9 @@ const Splash = ({ onFinish }) => {
                 animation: 'fadeInUp 0.8s ease-out 0.3s both',
                 textShadow: '0 1px 3px rgba(0,0,0,0.3)'
             }}>
-                Selamat Datang di Pusat Layanan Informasi Dokumen Perjalanan Republik Indonesia
+                Selamat Datang<br />
+                di Pusat Layanan Informasi Dokumen Perjalanan<br />
+                Republik Indonesia
             </p>
 
             <p style={{

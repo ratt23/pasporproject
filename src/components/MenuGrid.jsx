@@ -19,11 +19,22 @@ const MenuGrid = ({ nodes, onSelect }) => {
             <IonText color="medium">
                 <p style={{
                     fontWeight: 400,
-                    margin: '0 0 20px',
+                    margin: '0 0 4px',
                     fontSize: '14px',
                     fontFamily: "'DM Sans', sans-serif"
                 }}>
-                    {t.selectCategory}
+                    {t.welcomeSub}
+                </p>
+            </IonText>
+            <IonText color="medium">
+                <p style={{
+                    fontWeight: 500,
+                    margin: '0 0 20px',
+                    fontSize: '13px',
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontStyle: 'italic'
+                }}>
+                    {t.officeName}
                 </p>
             </IonText>
 
