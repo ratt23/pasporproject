@@ -122,9 +122,13 @@ const SubMenuList = ({ nodes, onSelect, parentTitle, footer }) => {
                             lineHeight: 1.5,
                             fontFamily: "'DM Sans', sans-serif",
                             whiteSpace: 'pre-wrap',
-                            fontStyle: 'italic'
+                            color: '#1a1a2e'
                         }}>
-                            <span dangerouslySetInnerHTML={{ __html: footer.replace(/\*(.*?)$/g, '<i>*$1</i>') }} />
+                            <span dangerouslySetInnerHTML={{
+                                __html: footer
+                                    .replace(/^(.*?)(?=\n\n\*)/s, '<b>$1</b>')
+                                    .replace(/\*(.*?)$/g, '<i>*$1</i>')
+                            }} />
                         </p>
                     </IonText>
                 </div>
