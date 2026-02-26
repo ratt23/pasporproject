@@ -37,8 +37,8 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
                     flexShrink: 0
                 }}>
                     <img
-                        src={logo1}
-                        alt="Logo Imigrasi"
+                        src={logo2}
+                        alt="Logo Kementrian"
                         style={{
                             width: '38px',
                             height: '38px',
@@ -47,8 +47,8 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
                         }}
                     />
                     <img
-                        src={logo2}
-                        alt="Logo Kementrian"
+                        src={logo1}
+                        alt="Logo Imigrasi"
                         style={{
                             width: '38px',
                             height: '38px',
