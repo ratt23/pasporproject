@@ -20,6 +20,7 @@ export const MENU_TREE_ID = [
         title: "Persyaratan Paspor",
         desc: "Dokumen yang diperlukan untuk pengajuan paspor",
         iconKey: "ClipboardList",
+        footer: "Petugas wawancara berhak meminta dokumen pendukung apabila ditemukan indikasi penyalahgunaan paspor berdasarkan hasil keterangan pemohon saat wawancara\n\n*berdasarkan Surat Edaran Ditjen Imigrasi Nomor IMI-1308.GR.01.01 Tahun 2024 tentang Pencegahan Tindak Pidana Perdagangan Orang dalam Penerbitan Paspor Biasa",
         children: [
             /* 1-1  Permohonan Baru */
             {
@@ -327,6 +328,7 @@ export const MENU_TREE_EN = [
         title: "Passport Requirements",
         desc: "Documents required for passport application",
         iconKey: "ClipboardList",
+        footer: "The interview officer reserves the right to request supporting documents if there is an indication of passport misuse based on the applicant's statement during the interview\n\n*based on the Circular Letter of the Directorate General of Immigration Number IMI-1308.GR.01.01 Year 2024 concerning the Prevention of the Crime of Trafficking in Persons in the Issuance of Ordinary Passports",
         children: [
             {
                 id: "permohonan-baru",
