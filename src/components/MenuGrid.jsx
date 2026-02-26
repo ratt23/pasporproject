@@ -22,9 +22,7 @@ const MenuGrid = ({ nodes, onSelect }) => {
                     margin: '0 0 4px',
                     fontSize: '14px',
                     fontFamily: "'DM Sans', sans-serif"
-                }}>
-                    {t.welcomeSub}
-                </p>
+                }} dangerouslySetInnerHTML={{ __html: t.welcomeSub.replace('Republik Indonesia', '<br/>Republik Indonesia') }} />
             </IonText>
             <IonText color="medium">
                 <p style={{
