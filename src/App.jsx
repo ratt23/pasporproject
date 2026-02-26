@@ -114,6 +114,7 @@ function App() {
                   nodes={currentNodes}
                   onSelect={handleSelect}
                   parentTitle={parentNode?.title}
+                  footer={parentNode?.footer}
                 />
               )}
             </div>

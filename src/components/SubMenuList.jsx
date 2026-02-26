@@ -1,6 +1,6 @@
 import { IonList, IonText } from "@ionic/react";
 
-const SubMenuList = ({ nodes, onSelect, parentTitle }) => {
+const SubMenuList = ({ nodes, onSelect, parentTitle, footer }) => {
     return (
         <div style={{ padding: '0 8px' }}>
             {parentTitle && (
@@ -106,6 +106,29 @@ const SubMenuList = ({ nodes, onSelect, parentTitle }) => {
                     );
                 })}
             </div>
+
+            {footer && (
+                <div style={{
+                    marginTop: '20px',
+                    padding: '16px',
+                    backgroundColor: '#f8fafc',
+                    borderRadius: '8px',
+                    border: '1px solid #e2e8f0'
+                }}>
+                    <IonText color="medium">
+                        <p style={{
+                            margin: 0,
+                            fontSize: '12px',
+                            lineHeight: 1.5,
+                            fontFamily: "'DM Sans', sans-serif",
+                            whiteSpace: 'pre-wrap',
+                            fontStyle: 'italic'
+                        }}>
+                            <span dangerouslySetInnerHTML={{ __html: footer.replace(/\*(.*?)$/g, '<i>*$1</i>') }} />
+                        </p>
+                    </IonText>
+                </div>
+            )}
         </div>
     );
 };
