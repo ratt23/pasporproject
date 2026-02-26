@@ -20,19 +20,20 @@ export const MENU_TREE_ID = [
         title: "Persyaratan Paspor",
         desc: "Dokumen yang diperlukan untuk pengajuan paspor",
         iconKey: "ClipboardList",
-        footer: "Petugas wawancara berhak meminta dokumen pendukung apabila ditemukan indikasi penyalahgunaan paspor berdasarkan hasil keterangan pemohon saat wawancara\n\n*berdasarkan Surat Edaran Ditjen Imigrasi Nomor IMI-1308.GR.01.01 Tahun 2024 tentang Pencegahan Tindak Pidana Perdagangan Orang dalam Penerbitan Paspor Biasa",
         children: [
             /* 1-1  Permohonan Baru */
             {
                 id: "permohonan-baru",
                 title: "Permohonan Baru",
                 desc: "Paspor pertama kali",
+                footer: "Petugas wawancara berhak meminta dokumen pendukung apabila ditemukan indikasi penyalahgunaan paspor berdasarkan hasil keterangan pemohon saat wawancara\n\n*berdasarkan Surat Edaran Ditjen Imigrasi Nomor IMI-1308.GR.01.01 Tahun 2024 tentang Pencegahan Tindak Pidana Perdagangan Orang dalam Penerbitan Paspor Biasa",
                 children: [
                     /* 1-1-1  Paspor Dewasa */
                     {
                         id: "paspor-dewasa-baru",
                         title: "Paspor Dewasa (> 17 tahun)",
                         desc: "Usia 17 tahun ke atas",
+                        footer: "Petugas wawancara berhak meminta dokumen pendukung apabila ditemukan indikasi penyalahgunaan paspor berdasarkan hasil keterangan pemohon saat wawancara\n\n*berdasarkan Surat Edaran Ditjen Imigrasi Nomor IMI-1308.GR.01.01 Tahun 2024 tentang Pencegahan Tindak Pidana Perdagangan Orang dalam Penerbitan Paspor Biasa",
                         detail: [
                             "KTP",
                             "KARTU KELUARGA",
@@ -44,6 +45,7 @@ export const MENU_TREE_ID = [
                         id: "paspor-anak-baru",
                         title: "Paspor Anak (< 17 tahun)",
                         desc: "Usia di bawah 17 tahun",
+                        footer: "Petugas wawancara berhak meminta dokumen pendukung apabila ditemukan indikasi penyalahgunaan paspor berdasarkan hasil keterangan pemohon saat wawancara\n\n*berdasarkan Surat Edaran Ditjen Imigrasi Nomor IMI-1308.GR.01.01 Tahun 2024 tentang Pencegahan Tindak Pidana Perdagangan Orang dalam Penerbitan Paspor Biasa",
                         children: [
                             {
                                 id: "anak-wni-baru",
@@ -92,12 +94,14 @@ export const MENU_TREE_ID = [
                 id: "perpanjangan",
                 title: "Perpanjangan Paspor",
                 desc: "Paspor lama habis masa berlaku",
+                footer: "Petugas wawancara berhak meminta dokumen pendukung apabila ditemukan indikasi penyalahgunaan paspor berdasarkan hasil keterangan pemohon saat wawancara\n\n*berdasarkan Surat Edaran Ditjen Imigrasi Nomor IMI-1308.GR.01.01 Tahun 2024 tentang Pencegahan Tindak Pidana Perdagangan Orang dalam Penerbitan Paspor Biasa",
                 children: [
                     /* 1-2-1  Paspor Dewasa */
                     {
                         id: "paspor-dewasa-perpanjangan",
                         title: "Paspor Dewasa (> 17 tahun)",
                         desc: "Usia 17 tahun ke atas",
+                        footer: "Petugas wawancara berhak meminta dokumen pendukung apabila ditemukan indikasi penyalahgunaan paspor berdasarkan hasil keterangan pemohon saat wawancara\n\n*berdasarkan Surat Edaran Ditjen Imigrasi Nomor IMI-1308.GR.01.01 Tahun 2024 tentang Pencegahan Tindak Pidana Perdagangan Orang dalam Penerbitan Paspor Biasa",
                         detail: [
                             "KTP",
                             "KARTU KELUARGA",
@@ -110,6 +114,7 @@ export const MENU_TREE_ID = [
                         id: "paspor-anak-perpanjangan",
                         title: "Paspor Anak (< 17 tahun)",
                         desc: "Usia di bawah 17 tahun",
+                        footer: "Petugas wawancara berhak meminta dokumen pendukung apabila ditemukan indikasi penyalahgunaan paspor berdasarkan hasil keterangan pemohon saat wawancara\n\n*berdasarkan Surat Edaran Ditjen Imigrasi Nomor IMI-1308.GR.01.01 Tahun 2024 tentang Pencegahan Tindak Pidana Perdagangan Orang dalam Penerbitan Paspor Biasa",
                         children: [
                             {
                                 id: "anak-wni-perpanjangan",
@@ -322,17 +327,18 @@ export const MENU_TREE_EN = [
         title: "Passport Requirements",
         desc: "Documents required for passport application",
         iconKey: "ClipboardList",
-        footer: "The interview officer reserves the right to request supporting documents if there is an indication of passport misuse based on the applicant's statement during the interview\n\n*based on the Circular Letter of the Directorate General of Immigration Number IMI-1308.GR.01.01 Year 2024 concerning the Prevention of the Crime of Trafficking in Persons in the Issuance of Ordinary Passports",
         children: [
             {
                 id: "permohonan-baru",
                 title: "New Application",
                 desc: "First time passport",
+                footer: "The interview officer reserves the right to request supporting documents if there is an indication of passport misuse based on the applicant's statement during the interview\n\n*based on the Circular Letter of the Directorate General of Immigration Number IMI-1308.GR.01.01 Year 2024 concerning the Prevention of the Crime of Trafficking in Persons in the Issuance of Ordinary Passports",
                 children: [
                     {
                         id: "paspor-dewasa-baru",
                         title: "Adult Passport (> 17 years)",
                         desc: "17 years old and above",
+                        footer: "The interview officer reserves the right to request supporting documents if there is an indication of passport misuse based on the applicant's statement during the interview\n\n*based on the Circular Letter of the Directorate General of Immigration Number IMI-1308.GR.01.01 Year 2024 concerning the Prevention of the Crime of Trafficking in Persons in the Issuance of Ordinary Passports",
                         detail: [
                             "ID CARD (KTP)",
                             "FAMILY CARD",
@@ -343,6 +349,7 @@ export const MENU_TREE_EN = [
                         id: "paspor-anak-baru",
                         title: "Child Passport (< 17 years)",
                         desc: "Under 17 years old",
+                        footer: "The interview officer reserves the right to request supporting documents if there is an indication of passport misuse based on the applicant's statement during the interview\n\n*based on the Circular Letter of the Directorate General of Immigration Number IMI-1308.GR.01.01 Year 2024 concerning the Prevention of the Crime of Trafficking in Persons in the Issuance of Ordinary Passports",
                         children: [
                             {
                                 id: "anak-wni-baru",
@@ -389,11 +396,13 @@ export const MENU_TREE_EN = [
                 id: "perpanjangan",
                 title: "Passport Renewal",
                 desc: "Old passport expired",
+                footer: "The interview officer reserves the right to request supporting documents if there is an indication of passport misuse based on the applicant's statement during the interview\n\n*based on the Circular Letter of the Directorate General of Immigration Number IMI-1308.GR.01.01 Year 2024 concerning the Prevention of the Crime of Trafficking in Persons in the Issuance of Ordinary Passports",
                 children: [
                     {
                         id: "paspor-dewasa-perpanjangan",
                         title: "Adult Passport (> 17 years)",
                         desc: "17 years old and above",
+                        footer: "The interview officer reserves the right to request supporting documents if there is an indication of passport misuse based on the applicant's statement during the interview\n\n*based on the Circular Letter of the Directorate General of Immigration Number IMI-1308.GR.01.01 Year 2024 concerning the Prevention of the Crime of Trafficking in Persons in the Issuance of Ordinary Passports",
                         detail: [
                             "ID CARD (KTP)",
                             "FAMILY CARD",
@@ -405,6 +414,7 @@ export const MENU_TREE_EN = [
                         id: "paspor-anak-perpanjangan",
                         title: "Child Passport (< 17 years)",
                         desc: "Under 17 years old",
+                        footer: "The interview officer reserves the right to request supporting documents if there is an indication of passport misuse based on the applicant's statement during the interview\n\n*based on the Circular Letter of the Directorate General of Immigration Number IMI-1308.GR.01.01 Year 2024 concerning the Prevention of the Crime of Trafficking in Persons in the Issuance of Ordinary Passports",
                         children: [
                             {
                                 id: "anak-wni-perpanjangan",
