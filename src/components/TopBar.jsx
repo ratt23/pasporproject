@@ -63,7 +63,8 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    lineHeight: 1.3
+                    lineHeight: 1.3,
+                    flex: 1
                 }}>
                     <span style={{
                         color: 'rgba(255,255,255,0.9)',
@@ -82,50 +83,59 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
                         Kelas I TPI Ambon
                     </span>
                 </div>
-            </div>
 
-            {/* Navigation Toolbar */}
-            <IonToolbar color="light" style={{ '--padding-end': '8px' }}>
-                <IonButtons slot="start">
-                    <IonButton
-                        onClick={onBack}
-                        disabled={!showBack}
-                        style={{ opacity: showBack ? 1 : 0 }}
-                    >
-                        <IonIcon slot="icon-only" icon={chevronBackOutline} />
-                    </IonButton>
-                </IonButtons>
-
+                {/* Right buttons */}
                 <div style={{
-                    textAlign: 'center',
-                    fontSize: '16px',
-                    fontWeight: 600,
-                    fontFamily: "'Poppins', sans-serif"
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    flexShrink: 0
                 }}>
-                    {t.title}
-                </div>
-
-                <IonButtons slot="end">
-                    <IonButton
+                    <button
                         onClick={toggleLang}
                         title={lang === "id" ? "Switch to English" : "Ganti ke Bahasa Indonesia"}
-                        style={{ fontSize: '12px', minWidth: 'auto', padding: 0 }}
+                        style={{
+                            background: 'rgba(255,255,255,0.15)',
+                            border: 'none',
+                            borderRadius: '8px',
+                            color: '#ffffff',
+                            fontSize: '12px',
+                            fontWeight: 600,
+                            fontFamily: "'Poppins', sans-serif",
+                            padding: '6px 10px',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '4px'
+                        }}
                     >
-                        <span style={{ marginRight: '2px', fontSize: '1.2em', lineHeight: 1 }}>
+                        <span style={{ fontSize: '1.1em', lineHeight: 1 }}>
                             {lang === "id" ? "🇮🇩" : "🇺🇸"}
                         </span>
                         {lang.toUpperCase()}
-                    </IonButton>
+                    </button>
 
-                    <IonButton
-                        onClick={onHome}
-                        disabled={!showBack}
-                        style={{ opacity: showBack ? 1 : 0 }}
-                    >
-                        <IonIcon slot="icon-only" icon={homeOutline} />
-                    </IonButton>
-                </IonButtons>
-            </IonToolbar>
+                    {showBack && (
+                        <button
+                            onClick={onHome}
+                            style={{
+                                background: 'rgba(255,255,255,0.15)',
+                                border: 'none',
+                                borderRadius: '8px',
+                                color: '#ffffff',
+                                fontSize: '18px',
+                                padding: '6px 8px',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}
+                        >
+                            🏠
+                        </button>
+                    )}
+                </div>
+            </div>
 
             {breadcrumbs.length > 0 && (
                 <div style={{
