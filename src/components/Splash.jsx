@@ -1,76 +1,120 @@
-import { motion } from "framer-motion";
-import { Loader2, BookOpen } from "lucide-react"; // Using BookOpen as placeholder logo if needed, or just a shape
-import { SITE_TITLE } from "../data/passportSteps";
-import splashBg from "../assets/splash.png";
+import { useState } from "react";
+import logoImg from "../assets/logo/logo1.webp";
 
+const Splash = ({ onFinish }) => {
+    const [open, setOpen] = useState(true);
+    const [visible, setVisible] = useState(true);
 
-const Splash = () => {
+    const handleMasuk = () => {
+        setOpen(false);
+        setTimeout(() => {
+            setVisible(false);
+            onFinish();
+        }, 500);
+    };
+
+    if (!visible) return null;
+
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-blue-300"
+        <div
+            style={{
+                position: 'fixed',
+                inset: 0,
+                zIndex: 50,
+                width: '100%',
+                height: '100%',
+                opacity: open ? 1 : 0,
+                transition: 'opacity 500ms ease-in-out',
+                backgroundColor: '#00277f',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '24px'
+            }}
         >
-            {/* Background Image */}
             <img
-                src={splashBg}
-                alt="Background"
-                className="absolute inset-0 h-full w-full object-cover"
+                src={logoImg}
+                alt="Logo"
+                style={{
+                    width: '140px',
+                    height: 'auto',
+                    marginBottom: '32px',
+                    animation: 'fadeInUp 0.8s ease-out',
+                    filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))'
+                }}
             />
 
-            {/* Overlay Content */}
-            <div className="relative z-10 flex flex-col items-center justify-between p-6 w-full max-w-md h-full pt-20">
+            <p style={{
+                color: '#ffffff',
+                fontWeight: 600,
+                fontSize: '16px',
+                lineHeight: '1.6',
+                textAlign: 'center',
+                maxWidth: '320px',
+                margin: 0,
+                fontFamily: "'Poppins', sans-serif",
+                animation: 'fadeInUp 0.8s ease-out 0.3s both',
+                textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+            }}>
+                Selamat Datang di Pusat Layanan Informasi Dokumen Perjalanan Republik Indonesia
+            </p>
 
-                {/* Logo Container (Top Section) */}
-                <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.2, duration: 0.5 }}
-                    className="mb-8 flex flex-col items-center"
-                >
-                    {/* Logo Placeholder Box */}
-                    <div className="flex h-28 w-28 items-center justify-center rounded-3xl bg-slate-200/80 backdrop-blur-md shadow-xl border-2 border-white/50 mb-6">
-                        <BookOpen className="h-12 w-12 text-slate-500" strokeWidth={2} />
-                        <span className="absolute bottom-4 text-xs font-bold text-slate-500 uppercase tracking-widest">Logo</span>
-                    </div>
+            <p style={{
+                color: 'rgba(255,255,255,0.85)',
+                fontWeight: 500,
+                fontSize: '14px',
+                lineHeight: '1.5',
+                textAlign: 'center',
+                maxWidth: '300px',
+                marginTop: '12px',
+                fontFamily: "'Poppins', sans-serif",
+                animation: 'fadeInUp 0.8s ease-out 0.5s both'
+            }}>
+                Kantor Imigrasi Kelas I TPI Ambon
+            </p>
 
-                    {/* Loading Spinner */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.8 }}
-                        className="mb-8"
-                    >
-                        <div className="relative h-12 w-12 rounded-full border-[5px] border-blue-600/30 border-t-blue-600 animate-spin" />
-                        <div className="absolute top-0 left-0 h-12 w-12 md:hidden"></div>
-                    </motion.div>
+            <button
+                onClick={handleMasuk}
+                style={{
+                    marginTop: '40px',
+                    padding: '12px 48px',
+                    backgroundColor: '#ffffff',
+                    color: '#00277f',
+                    border: 'none',
+                    borderRadius: '50px',
+                    fontSize: '16px',
+                    fontWeight: 700,
+                    fontFamily: "'Poppins', sans-serif",
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.25)',
+                    animation: 'fadeInUp 0.8s ease-out 0.7s both',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                    letterSpacing: '1px'
+                }}
+                onMouseDown={(e) => { e.currentTarget.style.transform = 'scale(0.95)'; }}
+                onMouseUp={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                onTouchStart={(e) => { e.currentTarget.style.transform = 'scale(0.95)'; }}
+                onTouchEnd={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+            >
+                MASUK
+            </button>
 
-                </motion.div>
-
-                {/* Title Section (Bottom) */}
-                <div className="mt-auto pb-12 text-center w-full">
-                    <motion.h1
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.4 }}
-                        className="text-3xl font-extrabold tracking-tight text-white drop-shadow-md"
-                        style={{ textShadow: '0 2px 10px rgba(0,0,0,0.1)' }}
-                    >
-                        {SITE_TITLE}
-                    </motion.h1>
-
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 0.9 }}
-                        transition={{ delay: 0.6 }}
-                        className="mt-2 text-white/90 font-medium text-lg drop-shadow-sm"
-                    >
-                        Menyiapkan panduan...
-                    </motion.p>
-                </div>
-            </div>
-        </motion.div>
+            <style>
+                {`
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                `}
+            </style>
+        </div>
     );
 };
 
