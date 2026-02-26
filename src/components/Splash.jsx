@@ -38,8 +38,7 @@ const Splash = ({ onFinish }) => {
                 width: '140px',
                 marginBottom: '32px',
                 animation: 'fadeInUp 0.8s ease-out',
-                overflow: 'hidden',
-                borderRadius: '50%'
+                overflow: 'hidden'
             }}>
                 <img
                     src={logoImg}
