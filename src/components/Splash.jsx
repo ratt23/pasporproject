@@ -33,25 +33,17 @@ const Splash = ({ onFinish }) => {
                 padding: '24px'
             }}
         >
-            <div style={{
-                position: 'relative',
-                width: '140px',
-                marginBottom: '32px',
-                animation: 'fadeInUp 0.8s ease-out',
-                overflow: 'hidden'
-            }}>
-                <img
-                    src={logoImg}
-                    alt="Logo"
-                    style={{
-                        width: '140px',
-                        height: 'auto',
-                        display: 'block',
-                        filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))'
-                    }}
-                />
-                <div className="shimmer-overlay" />
-            </div>
+            <img
+                src={logoImg}
+                alt="Logo"
+                className="splash-logo"
+                style={{
+                    width: '140px',
+                    height: 'auto',
+                    marginBottom: '32px',
+                    filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))'
+                }}
+            />
 
             <h1 style={{
                 color: '#ffffff',
@@ -137,27 +129,19 @@ const Splash = ({ onFinish }) => {
                         transform: translateY(0);
                     }
                 }
-                @keyframes shimmer {
-                    0% { transform: translateX(-150%) rotate(25deg); }
-                    100% { transform: translateX(150%) rotate(25deg); }
+                @keyframes logoGlint {
+                    0%, 80% {
+                        filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)) brightness(1);
+                    }
+                    90% {
+                        filter: drop-shadow(0 4px 20px rgba(255,255,255,0.4)) brightness(1.3);
+                    }
+                    100% {
+                        filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)) brightness(1);
+                    }
                 }
-                .shimmer-overlay {
-                    position: absolute;
-                    top: -50%;
-                    left: -50%;
-                    width: 200%;
-                    height: 200%;
-                    background: linear-gradient(
-                        90deg,
-                        transparent 0%,
-                        rgba(255,255,255,0) 30%,
-                        rgba(255,255,255,0.4) 50%,
-                        rgba(255,255,255,0) 70%,
-                        transparent 100%
-                    );
-                    animation: shimmer 3s ease-in-out 2s infinite;
-                    pointer-events: none;
-                    transform: translateX(-150%) rotate(25deg);
+                .splash-logo {
+                    animation: fadeInUp 0.8s ease-out, logoGlint 4s ease-in-out 2s infinite;
                 }
                 `}
             </style>
