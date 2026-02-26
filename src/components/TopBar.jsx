@@ -1,11 +1,10 @@
-import { IonHeader, IonToolbar, IonButtons, IonButton, IonIcon } from '@ionic/react';
-import { chevronBackOutline, homeOutline } from 'ionicons/icons';
+import { IonHeader } from '@ionic/react';
 import { useLanguage } from "../contexts/LanguageContext";
 import logo1 from "../assets/logo/logo1.webp";
 import logo2 from "../assets/logo/logokementrian.png";
 
 const TopBar = ({ path, nodes, onBack, onHome }) => {
-    const { lang, toggleLang, t } = useLanguage();
+    const { lang, toggleLang } = useLanguage();
 
     const breadcrumbs = [];
     let currentNodes = nodes;
@@ -18,6 +17,7 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
     }
 
     const showBack = path.length > 0;
+    const currentTitle = breadcrumbs.length > 0 ? breadcrumbs[breadcrumbs.length - 1] : '';
 
     return (
         <IonHeader className="ion-no-border">
@@ -88,65 +88,97 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
                 <div style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '4px',
+                    gap: '6px',
                     flexShrink: 0
                 }}>
                     <button
                         onClick={toggleLang}
                         title={lang === "id" ? "Switch to English" : "Ganti ke Bahasa Indonesia"}
                         style={{
-                            background: 'rgba(255,255,255,0.15)',
-                            border: 'none',
-                            borderRadius: '8px',
+                            background: 'rgba(255,255,255,0.12)',
+                            border: '1px solid rgba(255,255,255,0.2)',
+                            borderRadius: '6px',
                             color: '#ffffff',
-                            fontSize: '12px',
+                            fontSize: '11px',
                             fontWeight: 600,
                             fontFamily: "'Poppins', sans-serif",
-                            padding: '6px 10px',
+                            padding: '5px 10px',
                             cursor: 'pointer',
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '4px'
+                            gap: '4px',
+                            letterSpacing: '0.5px'
                         }}
                     >
-                        <span style={{ fontSize: '1.1em', lineHeight: 1 }}>
-                            {lang === "id" ? "🇮🇩" : "🇺🇸"}
-                        </span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
                         {lang.toUpperCase()}
                     </button>
 
                     {showBack && (
                         <button
                             onClick={onHome}
+                            title="Halaman Utama"
                             style={{
-                                background: 'rgba(255,255,255,0.15)',
-                                border: 'none',
-                                borderRadius: '8px',
+                                background: 'rgba(255,255,255,0.12)',
+                                border: '1px solid rgba(255,255,255,0.2)',
+                                borderRadius: '6px',
                                 color: '#ffffff',
-                                fontSize: '18px',
-                                padding: '6px 8px',
+                                padding: '5px 8px',
                                 cursor: 'pointer',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center'
                             }}
                         >
-                            🏠
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                                <polyline points="9 22 9 12 15 12 15 22" />
+                            </svg>
                         </button>
                     )}
                 </div>
             </div>
 
-            {breadcrumbs.length > 0 && (
+            {/* Navigation bar with back + title */}
+            {showBack && (
                 <div style={{
-                    padding: '0 16px 8px',
-                    textAlign: 'center',
-                    backgroundColor: 'var(--ion-color-light)',
-                    fontSize: '12px',
-                    color: 'var(--ion-color-medium)',
-                    fontFamily: "'Poppins', sans-serif"
+                    backgroundColor: '#f4f5f8',
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '8px 16px',
+                    gap: '8px',
+                    borderBottom: '1px solid #e0e0e0'
                 }}>
-                    {breadcrumbs.join(" / ")}
+                    <button
+                        onClick={onBack}
+                        style={{
+                            background: 'none',
+                            border: 'none',
+                            padding: '2px',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: '#00277f',
+                            flexShrink: 0
+                        }}
+                    >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+                    <span style={{
+                        fontSize: '13px',
+                        fontWeight: 600,
+                        color: '#00277f',
+                        fontFamily: "'Poppins', sans-serif"
+                    }}>
+                        {currentTitle}
+                    </span>
                 </div>
             )}
         </IonHeader>
