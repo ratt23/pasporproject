@@ -67,7 +67,7 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
                     flex: 1
                 }}>
                     <span style={{
-                        color: 'rgba(255,255,255,0.9)',
+                        color: '#e9b856',
                         fontSize: '13px',
                         fontWeight: 400,
                         fontFamily: "'DM Sans', sans-serif"
@@ -75,7 +75,7 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
                         Kantor Imigrasi
                     </span>
                     <span style={{
-                        color: '#ffffff',
+                        color: '#e9b856',
                         fontSize: '14px',
                         fontWeight: 700,
                         fontFamily: "'DM Sans', sans-serif"
