@@ -53,7 +53,7 @@ const Splash = ({ onFinish }) => {
                 textAlign: 'center',
                 maxWidth: '320px',
                 margin: 0,
-                fontFamily: "'Poppins', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 animation: 'fadeInUp 0.8s ease-out 0.3s both',
                 textShadow: '0 1px 3px rgba(0,0,0,0.3)'
             }}>
@@ -68,7 +68,7 @@ const Splash = ({ onFinish }) => {
                 textAlign: 'center',
                 maxWidth: '300px',
                 marginTop: '12px',
-                fontFamily: "'Poppins', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 animation: 'fadeInUp 0.8s ease-out 0.5s both'
             }}>
                 Kantor Imigrasi Kelas I TPI Ambon
@@ -85,7 +85,7 @@ const Splash = ({ onFinish }) => {
                     borderRadius: '50px',
                     fontSize: '16px',
                     fontWeight: 700,
-                    fontFamily: "'Poppins', sans-serif",
+                    fontFamily: "'DM Sans', sans-serif",
                     cursor: 'pointer',
                     boxShadow: '0 4px 16px rgba(0,0,0,0.25)',
                     animation: 'fadeInUp 0.8s ease-out 0.7s both',

@@ -1,65 +1,111 @@
-import { IonList, IonItem, IonLabel, IonIcon, IonText } from "@ionic/react";
-import { chevronForwardOutline } from 'ionicons/icons';
-import React from "react";
+import { IonList, IonText } from "@ionic/react";
 
 const SubMenuList = ({ nodes, onSelect, parentTitle }) => {
     return (
         <div style={{ padding: '0 8px' }}>
             {parentTitle && (
                 <IonText color="dark">
-                    <h2 style={{ fontWeight: 800, margin: '0 0 16px', lineHeight: 1.2, fontSize: '20px' }}>
+                    <h2 style={{
+                        fontWeight: 700,
+                        margin: '0 0 16px',
+                        lineHeight: 1.3,
+                        fontSize: '20px',
+                        fontFamily: "'DM Sans', sans-serif",
+                        letterSpacing: '-0.3px'
+                    }}>
                         {parentTitle}
                     </h2>
                 </IonText>
             )}
 
-            <IonList style={{ background: 'transparent' }} lines="none">
-                {nodes.map((node) => {
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {nodes.map((node, index) => {
                     const hasChildren = node.children && node.children.length > 0;
                     const hasDetail = node.detail && node.detail.length > 0;
                     const isClickable = hasChildren || hasDetail;
 
                     return (
-                        <IonItem
+                        <div
                             key={node.id}
-                            button={isClickable}
-                            detail={false}
                             onClick={() => isClickable && onSelect(node)}
                             style={{
-                                '--background': 'var(--ion-color-light-tint, #ffffff)',
-                                '--border-radius': '16px',
-                                '--padding-start': '0',
-                                '--inner-padding-end': '16px',
-                                marginBottom: '12px',
-                                border: '1px solid var(--ion-color-step-150, #d7d8da)',
-                                borderRadius: '16px'
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '14px',
+                                padding: '16px',
+                                backgroundColor: '#ffffff',
+                                borderRadius: '10px',
+                                border: '1px solid #e8eaed',
+                                cursor: isClickable ? 'pointer' : 'default',
+                                transition: 'background-color 0.15s ease, box-shadow 0.15s ease',
+                                boxShadow: '0 1px 4px rgba(0,0,0,0.03)'
                             }}
                         >
-                            {/* Accent bar */}
-                            <div style={{ height: '40px', width: '4px', borderRadius: '4px', backgroundColor: 'var(--ion-color-primary)', margin: '16px 16px 16px 0' }} />
+                            {/* Number */}
+                            <div style={{
+                                width: '32px',
+                                height: '32px',
+                                borderRadius: '8px',
+                                backgroundColor: '#00277f',
+                                color: '#ffffff',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontSize: '13px',
+                                fontWeight: 700,
+                                fontFamily: "'DM Sans', sans-serif",
+                                flexShrink: 0
+                            }}>
+                                {index + 1}
+                            </div>
 
-                            <IonLabel className="ion-text-wrap" style={{ margin: '16px 0' }}>
-                                <IonText color="dark">
-                                    <h3 style={{ fontWeight: 'bold', fontSize: '15px', lineHeight: 1.3, margin: 0 }}>
-                                        {node.title}
-                                    </h3>
-                                </IonText>
+                            {/* Content */}
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                                <div style={{
+                                    fontWeight: 600,
+                                    fontSize: '14px',
+                                    lineHeight: 1.4,
+                                    color: '#1a1a2e',
+                                    fontFamily: "'DM Sans', sans-serif"
+                                }}>
+                                    {node.title}
+                                </div>
                                 {node.desc && (
-                                    <IonText color="medium">
-                                        <p style={{ marginTop: '4px', fontSize: '13px', lineHeight: 1.4 }}>
-                                            {node.desc}
-                                        </p>
-                                    </IonText>
+                                    <div style={{
+                                        marginTop: '4px',
+                                        fontSize: '12px',
+                                        lineHeight: 1.4,
+                                        color: '#6b7280',
+                                        fontFamily: "'DM Sans', sans-serif",
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: 2,
+                                        WebkitBoxOrient: 'vertical',
+                                        overflow: 'hidden'
+                                    }}>
+                                        {node.desc}
+                                    </div>
                                 )}
-                            </IonLabel>
+                            </div>
 
+                            {/* Arrow */}
                             {isClickable && (
-                                <IonIcon icon={chevronForwardOutline} color="medium" slot="end" style={{ marginLeft: '16px' }} />
+                                <svg
+                                    width="16" height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="#9ca3af"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    style={{ flexShrink: 0 }}
+                                >
+                                    <polyline points="9 18 15 12 9 6" />
+                                </svg>
                             )}
-                        </IonItem>
+                        </div>
                     );
                 })}
-            </IonList>
+            </div>
         </div>
     );
 };

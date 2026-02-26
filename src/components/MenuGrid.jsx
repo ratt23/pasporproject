@@ -1,77 +1,112 @@
 import { IonGrid, IonRow, IonCol, IonCard, IonText } from '@ionic/react';
 import { useLanguage } from "../contexts/LanguageContext";
 
-// Mapping titles to unsplash keywords for corporate images
-const getImageKeyword = (title) => {
-    const t = title.toLowerCase();
-    if (t.includes('baru') || t.includes('new')) return 'document,desk,office';
-    if (t.includes('hilang') || t.includes('lost')) return 'insurance,paperwork';
-    if (t.includes('pergantian') || t.includes('replacement')) return 'passport,travel,business';
-    if (t.includes('rusak') || t.includes('damage')) return 'contract,legal';
-    return 'corporate,office,professional';
-}
-
 const MenuGrid = ({ nodes, onSelect }) => {
     const { t } = useLanguage();
     return (
         <div style={{ padding: '0 8px' }}>
             <IonText color="dark">
-                <h2 style={{ fontWeight: 800, margin: '0 0 8px', lineHeight: 1.2, fontSize: '24px' }}>
+                <h2 style={{
+                    fontWeight: 700,
+                    margin: '0 0 4px',
+                    lineHeight: 1.3,
+                    fontSize: '22px',
+                    fontFamily: "'DM Sans', sans-serif"
+                }}>
                     {t.welcome}
                 </h2>
             </IonText>
             <IonText color="medium">
-                <p style={{ fontWeight: 500, margin: '0 0 24px', fontSize: '14px' }}>
+                <p style={{
+                    fontWeight: 400,
+                    margin: '0 0 20px',
+                    fontSize: '14px',
+                    fontFamily: "'DM Sans', sans-serif"
+                }}>
                     {t.selectCategory}
                 </p>
             </IonText>
 
             <IonGrid className="ion-no-padding">
                 <IonRow>
-                    {nodes.map((node) => (
-                        <IonCol size="6" key={node.id}>
-                            <IonCard
-                                button
-                                onClick={() => onSelect(node)}
-                                style={{
-                                    margin: '6px',
-                                    height: 'calc(100% - 12px)',
-                                    borderRadius: '16px',
-                                    border: '1px solid var(--ion-color-step-100, #e0e0e0)',
-                                    boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    padding: '0',
-                                    cursor: 'pointer',
-                                    overflow: 'hidden'
-                                }}
-                            >
-                                <div style={{
-                                    width: '100%',
-                                    height: '100px',
-                                    backgroundImage: `url(https://source.unsplash.com/400x300/?${getImageKeyword(node.title)})`,
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: 'center',
-                                    backgroundColor: 'var(--ion-color-primary-tint)'
-                                }} />
+                    {nodes.map((node, index) => {
+                        const accentColors = [
+                            '#00277f',
+                            '#1a5276',
+                            '#0e4d6b',
+                            '#2c3e6b',
+                            '#1b3a5c',
+                            '#003566'
+                        ];
+                        const accent = accentColors[index % accentColors.length];
 
-                                <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', flexGrow: 1, backgroundColor: '#ffffff' }}>
-                                    <IonText color="dark">
-                                        <h3 style={{ margin: 0, fontWeight: '700', lineHeight: 1.2, fontSize: '15px' }}>
-                                            {node.title}
-                                        </h3>
-                                    </IonText>
-                                    {node.desc && (
-                                        <IonText color="medium">
-                                            <p style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', margin: '6px 0 0', lineHeight: 1.4, fontSize: '12px' }}>
-                                                {node.desc}
-                                            </p>
+                        return (
+                            <IonCol size="6" key={node.id}>
+                                <IonCard
+                                    button
+                                    onClick={() => onSelect(node)}
+                                    style={{
+                                        margin: '6px',
+                                        height: 'calc(100% - 12px)',
+                                        borderRadius: '12px',
+                                        border: '1px solid #e8eaed',
+                                        boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        padding: '0',
+                                        cursor: 'pointer',
+                                        overflow: 'hidden',
+                                        transition: 'box-shadow 0.2s ease, transform 0.2s ease'
+                                    }}
+                                >
+                                    {/* Top accent line */}
+                                    <div style={{
+                                        width: '100%',
+                                        height: '4px',
+                                        backgroundColor: accent
+                                    }} />
+
+                                    <div style={{
+                                        padding: '20px 16px',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        flexGrow: 1,
+                                        backgroundColor: '#ffffff'
+                                    }}>
+                                        <IonText color="dark">
+                                            <h3 style={{
+                                                margin: 0,
+                                                fontWeight: 700,
+                                                lineHeight: 1.3,
+                                                fontSize: '15px',
+                                                fontFamily: "'DM Sans', sans-serif",
+                                                letterSpacing: '-0.2px'
+                                            }}>
+                                                {node.title}
+                                            </h3>
                                         </IonText>
-                                    )}
-                                </div>
-                            </IonCard>
-                        </IonCol>
-                    ))}
+                                        {node.desc && (
+                                            <IonText color="medium">
+                                                <p style={{
+                                                    display: '-webkit-box',
+                                                    WebkitLineClamp: 3,
+                                                    WebkitBoxOrient: 'vertical',
+                                                    overflow: 'hidden',
+                                                    margin: '8px 0 0',
+                                                    lineHeight: 1.5,
+                                                    fontSize: '12px',
+                                                    fontFamily: "'DM Sans', sans-serif",
+                                                    fontWeight: 400
+                                                }}>
+                                                    {node.desc}
+                                                </p>
+                                            </IonText>
+                                        )}
+                                    </div>
+                                </IonCard>
+                            </IonCol>
+                        );
+                    })}
                 </IonRow>
             </IonGrid>
         </div>

@@ -70,7 +70,7 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
                         color: 'rgba(255,255,255,0.9)',
                         fontSize: '13px',
                         fontWeight: 400,
-                        fontFamily: "'Poppins', sans-serif"
+                        fontFamily: "'DM Sans', sans-serif"
                     }}>
                         Kantor Imigrasi
                     </span>
@@ -78,7 +78,7 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
                         color: '#ffffff',
                         fontSize: '14px',
                         fontWeight: 700,
-                        fontFamily: "'Poppins', sans-serif"
+                        fontFamily: "'DM Sans', sans-serif"
                     }}>
                         Kelas I TPI Ambon
                     </span>
@@ -101,7 +101,7 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
                             color: '#ffffff',
                             fontSize: '11px',
                             fontWeight: 600,
-                            fontFamily: "'Poppins', sans-serif",
+                            fontFamily: "'DM Sans', sans-serif",
                             padding: '5px 10px',
                             cursor: 'pointer',
                             display: 'flex',
@@ -175,9 +175,14 @@ const TopBar = ({ path, nodes, onBack, onHome }) => {
                         fontSize: '13px',
                         fontWeight: 600,
                         color: '#00277f',
-                        fontFamily: "'Poppins', sans-serif"
+                        fontFamily: "'DM Sans', sans-serif",
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap'
                     }}>
-                        {currentTitle}
+                        {breadcrumbs.length > 2
+                            ? '… / ' + breadcrumbs.slice(-2).join(' / ')
+                            : breadcrumbs.join(' / ')}
                     </span>
                 </div>
             )}
