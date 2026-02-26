@@ -83,23 +83,23 @@ const DetailList = ({ details, parentTitle, footer }) => {
             {footer && (
                 <div style={{
                     marginTop: '20px',
-                    padding: '16px',
+                    padding: '24px',
                     backgroundColor: '#f8fafc',
-                    borderRadius: '8px',
+                    borderRadius: '12px',
                     border: '1px solid #e2e8f0'
                 }}>
                     <div style={{
                         margin: 0,
-                        fontSize: '12px',
-                        lineHeight: 1.5,
+                        fontSize: '13px',
+                        lineHeight: 1.6,
                         fontFamily: "'DM Sans', sans-serif",
                         whiteSpace: 'pre-wrap',
-                        color: '#1a1a2e'
+                        color: '#1e293b'
                     }}
                         dangerouslySetInnerHTML={{
                             __html: footer
-                                .replace(/^(.*?)(?=\n\n\*)/s, '<b>$1</b>')
-                                .replace(/\*(.*?)$/g, '<i>*$1</i>')
+                                .replace(/^(.*?)(?=\n\n\*)/s, '<strong style="font-weight: 700; color: #1e293b;">$1</strong>')
+                                .replace(/\*(.*?)$/g, '<span style="font-style: italic; font-weight: 400; color: #475569;">*$1</span>')
                         }} />
                 </div>
             )}
