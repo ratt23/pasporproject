@@ -1,4 +1,4 @@
-const DetailList = ({ details, parentTitle }) => {
+const DetailList = ({ details, parentTitle, footer }) => {
     return (
         <div style={{ padding: '0 8px' }}>
             {parentTitle && (
@@ -79,6 +79,23 @@ const DetailList = ({ details, parentTitle }) => {
                     );
                 })}
             </div>
+
+            {footer && (
+                <div style={{
+                    marginTop: '16px',
+                    padding: '12px 16px',
+                    fontSize: '12px',
+                    lineHeight: 1.5,
+                    color: '#6b7280',
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontStyle: 'italic',
+                    backgroundColor: '#f9fafb',
+                    borderRadius: '8px',
+                    border: '1px solid #e8eaed'
+                }}>
+                    {footer}
+                </div>
+            )}
         </div>
     );
 };

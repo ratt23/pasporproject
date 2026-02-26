@@ -5,13 +5,13 @@ const LanguageContext = createContext();
 const translations = {
     id: {
         title: "Panduan Paspor",
-        welcome: "Selamat Datang 👋",
+        welcome: "Selamat Datang",
         selectCategory: "Pilih kategori panduan paspor",
         footer: "© 2026 Kantor Imigrasi",
     },
     en: {
         title: "Passport Guide",
-        welcome: "Welcome 👋",
+        welcome: "Welcome",
         selectCategory: "Select a passport guide category",
         footer: "© 2026 Immigration Office",
     },

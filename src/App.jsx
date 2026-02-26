@@ -105,6 +105,7 @@ function App() {
                 <DetailList
                   details={detailNode.detail}
                   parentTitle={detailNode.title}
+                  footer={detailNode.footer}
                 />
               ) : isRoot ? (
                 <MenuGrid nodes={currentNodes} onSelect={handleSelect} />

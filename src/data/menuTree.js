@@ -123,13 +123,13 @@ export const MENU_TREE_ID = [
         desc: "Biaya resmi pembuatan paspor",
         iconKey: "Banknote",
         detail: [
-            { title: "Paspor Biasa 48 Halaman", note: "Rp 350.000" },
-            { title: "Paspor Elektronik 48 Halaman", note: "Rp 650.000" },
-            { title: "Paspor Biasa 24 Halaman (Anak)", note: "Rp 100.000" },
-            { title: "Penggantian Paspor Hilang / Rusak", note: "2× tarif normal" },
-            { title: "Paspor Percepatan (3 Hari)", note: "Rp 1.000.000" },
-            { title: "Biaya Foto & Sidik Jari", note: "Sudah termasuk" },
+            { title: "Paspor Elektronik 5 Tahun", note: "Rp. 650.000" },
+            { title: "Paspor Elektronik 10 Tahun", note: "Rp. 950.000" },
+            { title: "Layanan Percepatan Selesai di Hari yang Sama", note: "Rp. 1.000.000 **" },
+            { title: "Denda Paspor Hilang", note: "Rp. 1.000.000 **" },
+            { title: "Denda Paspor Rusak", note: "Rp. 500.000 **" },
         ],
+        footer: "** : Belum termasuk biaya paspor",
     },
 
     /* ─────────── 3. PENGGANTIAN PASPOR HILANG/RUSAK/PERUBAHAN DATA ── */
@@ -139,10 +139,10 @@ export const MENU_TREE_ID = [
         desc: "Prosedur penggantian paspor karena hilang, rusak, atau perubahan data",
         iconKey: "RefreshCw",
         children: [
-            /* 3-1  Paspor Hilang */
+            /* 3-1  Penggantian Paspor Hilang */
             {
                 id: "hilang",
-                title: "Paspor Hilang",
+                title: "Penggantian Paspor Hilang",
                 desc: "Prosedur jika paspor hilang",
                 detail: [
                     "LAPORAN KEHILANGAN DARI PIHAK KEPOLISIAN",
@@ -156,11 +156,45 @@ export const MENU_TREE_ID = [
                 ],
             },
 
-            /* 3-2  Paspor Hilang Kahar */
+            /* 3-2  Penggantian Paspor Hilang Kahar */
             {
                 id: "hilang-kahar",
-                title: "Paspor Hilang Kahar",
+                title: "Penggantian Paspor Hilang Kahar",
                 desc: "Prosedur jika paspor hilang karena bencana kahar",
+                detail: [
+                    "SURAT KETERANGAN KEJADIAN KAHAR DARI KELURAHAN SETEMPAT",
+                    "MELAPORKAN KE KANTOR IMIGRASI DENGAN MEMBAWA BERKAS PERSYARATAN ASLI",
+                    "PROSES BAP OLEH PETUGAS",
+                    "PERSETUJUAN KEPALA KANTOR/PEJABAT IMIGRASI",
+                    "PROSES FOTO DAN BIOMETRIK",
+                    "PERSETUJUAN DIREKTUR JENDERAL IMIGRASI",
+                    "PENERBITAN PASPOR",
+                    "PETUGAS MENGHUBUNGI PEMOHON JIKA PASPORNYA SUDAH BISA DIAMBIL"
+                ],
+            },
+
+            /* 3-3  Penggantian Paspor Rusak */
+            {
+                id: "rusak",
+                title: "Penggantian Paspor Rusak",
+                desc: "Prosedur jika paspor rusak",
+                detail: [
+                    "PASPOR LAMA YANG RUSAK",
+                    "MELAPORKAN KE KANTOR IMIGRASI DENGAN MEMBAWA BERKAS PERSYARATAN ASLI",
+                    "PROSES BAP OLEH PETUGAS",
+                    "PERSETUJUAN KEPALA KANTOR/PEJABAT IMIGRASI",
+                    "PROSES FOTO DAN BIOMETRIK",
+                    "PERSETUJUAN DIREKTUR JENDERAL IMIGRASI",
+                    "PENERBITAN PASPOR",
+                    "PETUGAS MENGHUBUNGI PEMOHON JIKA PASPORNYA SUDAH BISA DIAMBIL"
+                ],
+            },
+
+            /* 3-4  Penggantian Paspor Rusak Kahar */
+            {
+                id: "rusak-kahar",
+                title: "Penggantian Paspor Rusak Kahar",
+                desc: "Prosedur jika paspor rusak karena bencana kahar",
                 detail: [
                     "PASPOR LAMA YANG RUSAK",
                     "SURAT KETERANGAN KEJADIAN KAHAR DARI KELURAHAN SETEMPAT",
@@ -174,9 +208,7 @@ export const MENU_TREE_ID = [
                 ],
             },
 
-            /* 3-3  Paspor Rusak (Removed in User Outline, mapped out since not requested) */
-
-            /* 3-4  Perubahan Data */
+            /* 3-5  Perubahan Data */
             {
                 id: "perubahan-data",
                 title: "Perubahan Data",
@@ -202,13 +234,42 @@ export const MENU_TREE_ID = [
         title: "Syarat Pengambilan Paspor",
         desc: "Ketentuan saat mengambil paspor",
         iconKey: "PackageCheck",
-        detail: [
-            { title: "Tanda Terima Permohonan", note: "Asli (diberikan saat pengajuan)" },
-            { title: "KTP Elektronik Pemohon", note: "Asli" },
-            { title: "Bukti Pembayaran PNBP", note: "Asli" },
-            { title: "Surat Kuasa", note: "Bermeterai, jika diwakilkan" },
-            { title: "KTP Penerima Kuasa", note: "Asli & fotokopi, jika diwakilkan" },
-            { title: "Waktu Pengambilan", note: "4–5 hari kerja setelah wawancara" },
+        children: [
+            /* 4-1  Pemohon */
+            {
+                id: "pemohon",
+                title: "Pemohon",
+                desc: "Pengambilan oleh pemohon sendiri",
+                detail: [
+                    "TANDA BUKTI PEMBAYARAN",
+                    "KTP",
+                ],
+            },
+
+            /* 4-2  Orang Lain dalam 1 KK */
+            {
+                id: "dalam-1-kk",
+                title: "Orang Lain dalam 1 Kartu Keluarga",
+                desc: "Pengambilan oleh anggota keluarga dalam 1 KK",
+                detail: [
+                    "TANDA BUKTI PEMBAYARAN",
+                    "KTP",
+                    "FOTOKOPI KARTU KELUARGA",
+                ],
+            },
+
+            /* 4-3  Orang Lain tidak dalam 1 KK */
+            {
+                id: "tidak-dalam-1-kk",
+                title: "Orang Lain Tidak dalam 1 Kartu Keluarga",
+                desc: "Pengambilan oleh orang lain di luar KK",
+                detail: [
+                    "TANDA BUKTI PEMBAYARAN",
+                    "KTP",
+                    "FOTOKOPI KARTU KELUARGA",
+                    "SURAT KUASA BERMETERAI 10.000",
+                ],
+            },
         ],
     },
 ];
@@ -313,13 +374,13 @@ export const MENU_TREE_EN = [
         desc: "Official passport making fee",
         iconKey: "Banknote",
         detail: [
-            { title: "Ordinary Passport 48 Pages", note: "Rp 350,000" },
-            { title: "Electronic Passport 48 Pages", note: "Rp 650,000" },
-            { title: "Ordinary Passport 24 Pages (Child)", note: "Rp 100,000" },
-            { title: "Replacement of Lost/Damaged Passport", note: "2× normal tariff" },
-            { title: "Expedited Passport (3 Days)", note: "Rp 1,000,000" },
-            { title: "Photo & Fingerprint Fee", note: "Included" },
+            { title: "5-Year Electronic Passport", note: "Rp. 650,000" },
+            { title: "10-Year Electronic Passport", note: "Rp. 950,000" },
+            { title: "Same-Day Expedited Service", note: "Rp. 1,000,000 **" },
+            { title: "Lost Passport Penalty", note: "Rp. 1,000,000 **" },
+            { title: "Damaged Passport Penalty", note: "Rp. 500,000 **" },
         ],
+        footer: "** : Does not include passport fee",
     },
     {
         id: "penggantian",
@@ -329,7 +390,7 @@ export const MENU_TREE_EN = [
         children: [
             {
                 id: "hilang",
-                title: "Lost Passport",
+                title: "Lost Passport Replacement",
                 desc: "Procedure if passport is lost",
                 detail: [
                     "LOSS REPORT FROM THE POLICE",
@@ -344,8 +405,38 @@ export const MENU_TREE_EN = [
             },
             {
                 id: "hilang-kahar",
-                title: "Force Majeure Lost Passport",
+                title: "Force Majeure Lost Passport Replacement",
                 desc: "Procedure if passport is lost due to force majeure",
+                detail: [
+                    "FORCE MAJEURE INCIDENT CERTIFICATE FROM LOCAL SUB-DISTRICT HEAD",
+                    "REPORT TO IMMIGRATION OFFICE BRINGING ORIGINAL REQUIREMENT DOCUMENTS",
+                    "BAP PROCESS BY OFFICER",
+                    "APPROVAL FROM THE HEAD OF OFFICE/IMMIGRATION OFFICIAL",
+                    "PHOTO AND BIOMETRIC PROCESS",
+                    "APPROVAL FROM THE DIRECTOR GENERAL OF IMMIGRATION",
+                    "PASSPORT ISSUANCE",
+                    "OFFICER CONTACTS APPLICANT WHEN PASSPORT IS READY FOR COLLECTION"
+                ],
+            },
+            {
+                id: "rusak",
+                title: "Damaged Passport Replacement",
+                desc: "Procedure if passport is damaged",
+                detail: [
+                    "DAMAGED OLD PASSPORT",
+                    "REPORT TO IMMIGRATION OFFICE BRINGING ORIGINAL REQUIREMENT DOCUMENTS",
+                    "BAP PROCESS BY OFFICER",
+                    "APPROVAL FROM THE HEAD OF OFFICE/IMMIGRATION OFFICIAL",
+                    "PHOTO AND BIOMETRIC PROCESS",
+                    "APPROVAL FROM THE DIRECTOR GENERAL OF IMMIGRATION",
+                    "PASSPORT ISSUANCE",
+                    "OFFICER CONTACTS APPLICANT WHEN PASSPORT IS READY FOR COLLECTION"
+                ],
+            },
+            {
+                id: "rusak-kahar",
+                title: "Force Majeure Damaged Passport Replacement",
+                desc: "Procedure if passport is damaged due to force majeure",
                 detail: [
                     "DAMAGED OLD PASSPORT",
                     "FORCE MAJEURE INCIDENT CERTIFICATE FROM LOCAL SUB-DISTRICT HEAD",
@@ -364,7 +455,7 @@ export const MENU_TREE_EN = [
                 desc: "Name, address, or other data changed",
                 detail: [
                     "OLD PASSPORT",
-                    "COURT DEGREE LETTER REGARDING DATA CHANGE",
+                    "COURT DECREE LETTER REGARDING DATA CHANGE",
                     "REPORT TO IMMIGRATION OFFICE BRINGING ORIGINAL REQUIREMENT DOCUMENTS",
                     "BAP PROCESS BY OFFICER",
                     "APPROVAL FROM THE HEAD OF OFFICE/IMMIGRATION OFFICIAL",
@@ -381,13 +472,37 @@ export const MENU_TREE_EN = [
         title: "Passport Collection Requirements",
         desc: "Conditions when collecting passport",
         iconKey: "PackageCheck",
-        detail: [
-            { title: "Application Receipt", note: "Original (given during application)" },
-            { title: "Applicant's Electronic ID Card", note: "Original" },
-            { title: "PNBP Payment Proof", note: "Original" },
-            { title: "Power of Attorney", note: "With duty stamp, if represented" },
-            { title: "Proxy's ID Card", note: "Original & photocopy, if represented" },
-            { title: "Collection Time", note: "4–5 working days after interview" },
+        children: [
+            {
+                id: "pemohon",
+                title: "Applicant",
+                desc: "Collection by the applicant",
+                detail: [
+                    "PAYMENT RECEIPT",
+                    "ID CARD (KTP)",
+                ],
+            },
+            {
+                id: "dalam-1-kk",
+                title: "Family Member in Same Household",
+                desc: "Collection by family member in same family card",
+                detail: [
+                    "PAYMENT RECEIPT",
+                    "ID CARD (KTP)",
+                    "PHOTOCOPY OF FAMILY CARD",
+                ],
+            },
+            {
+                id: "tidak-dalam-1-kk",
+                title: "Non-Family Member",
+                desc: "Collection by someone outside the family card",
+                detail: [
+                    "PAYMENT RECEIPT",
+                    "ID CARD (KTP)",
+                    "PHOTOCOPY OF FAMILY CARD",
+                    "POWER OF ATTORNEY WITH Rp. 10,000 STAMP DUTY",
+                ],
+            },
         ],
     },
 ];
