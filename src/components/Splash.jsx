@@ -33,45 +33,69 @@ const Splash = ({ onFinish }) => {
                 padding: '24px'
             }}
         >
-            <img
-                src={logoImg}
-                alt="Logo"
-                style={{
-                    width: '140px',
-                    height: 'auto',
-                    marginBottom: '32px',
-                    animation: 'fadeInUp 0.8s ease-out',
-                    filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))'
-                }}
-            />
+            <div style={{
+                position: 'relative',
+                width: '140px',
+                marginBottom: '32px',
+                animation: 'fadeInUp 0.8s ease-out',
+                overflow: 'hidden',
+                borderRadius: '50%'
+            }}>
+                <img
+                    src={logoImg}
+                    alt="Logo"
+                    style={{
+                        width: '140px',
+                        height: 'auto',
+                        display: 'block',
+                        filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))'
+                    }}
+                />
+                <div className="shimmer-overlay" />
+            </div>
+
+            <h1 style={{
+                color: '#ffffff',
+                fontWeight: 800,
+                fontSize: '28px',
+                lineHeight: '1.2',
+                textAlign: 'center',
+                margin: '0 0 16px',
+                fontFamily: "'Poppins', sans-serif",
+                animation: 'fadeInUp 0.8s ease-out 0.3s both',
+                textShadow: '0 2px 6px rgba(0,0,0,0.3)',
+                letterSpacing: '0.5px'
+            }}>
+                Selamat Datang
+            </h1>
 
             <p style={{
-                color: '#ffffff',
-                fontWeight: 600,
-                fontSize: '16px',
+                color: 'rgba(255,255,255,0.9)',
+                fontWeight: 500,
+                fontSize: '14px',
                 lineHeight: '1.6',
                 textAlign: 'center',
                 maxWidth: '320px',
                 margin: 0,
-                fontFamily: "'DM Sans', sans-serif",
-                animation: 'fadeInUp 0.8s ease-out 0.3s both',
-                textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+                fontFamily: "'Poppins', sans-serif",
+                animation: 'fadeInUp 0.8s ease-out 0.5s both',
+                textShadow: '0 1px 3px rgba(0,0,0,0.2)'
             }}>
-                Selamat Datang<br />
                 di Pusat Layanan Informasi Dokumen Perjalanan<br />
                 Republik Indonesia
             </p>
 
             <p style={{
-                color: 'rgba(255,255,255,0.85)',
-                fontWeight: 500,
-                fontSize: '14px',
+                color: 'rgba(255,255,255,0.7)',
+                fontWeight: 400,
+                fontSize: '13px',
                 lineHeight: '1.5',
                 textAlign: 'center',
                 maxWidth: '300px',
-                marginTop: '12px',
-                fontFamily: "'DM Sans', sans-serif",
-                animation: 'fadeInUp 0.8s ease-out 0.5s both'
+                marginTop: '16px',
+                fontFamily: "'Poppins', sans-serif",
+                animation: 'fadeInUp 0.8s ease-out 0.7s both',
+                letterSpacing: '0.3px'
             }}>
                 Kantor Imigrasi Kelas I TPI Ambon
             </p>
@@ -113,6 +137,28 @@ const Splash = ({ onFinish }) => {
                         opacity: 1;
                         transform: translateY(0);
                     }
+                }
+                @keyframes shimmer {
+                    0% { transform: translateX(-150%) rotate(25deg); }
+                    100% { transform: translateX(150%) rotate(25deg); }
+                }
+                .shimmer-overlay {
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: linear-gradient(
+                        90deg,
+                        transparent 0%,
+                        rgba(255,255,255,0) 30%,
+                        rgba(255,255,255,0.4) 50%,
+                        rgba(255,255,255,0) 70%,
+                        transparent 100%
+                    );
+                    animation: shimmer 3s ease-in-out 2s infinite;
+                    pointer-events: none;
+                    transform: translateX(-150%) rotate(25deg);
                 }
                 `}
             </style>

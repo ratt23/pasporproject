@@ -11,7 +11,7 @@ const MenuGrid = ({ nodes, onSelect }) => {
                     margin: '0 0 4px',
                     lineHeight: 1.3,
                     fontSize: '22px',
-                    fontFamily: "'DM Sans', sans-serif"
+                    fontFamily: "'Poppins', sans-serif"
                 }}>
                     {t.welcome}
                 </h2>
