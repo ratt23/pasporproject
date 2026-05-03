@@ -1,0 +1,132 @@
+const DetailList = ({ details, parentTitle, footer }) => {
+    return (
+        <div style={{ padding: '0 8px' }}>
+            {parentTitle && (
+                <h2 style={{
+                    fontWeight: 700,
+                    margin: '0 0 16px',
+                    lineHeight: 1.3,
+                    fontSize: '20px',
+                    fontFamily: "'DM Sans', sans-serif",
+                    letterSpacing: '-0.3px',
+                    color: '#1a1a2e'
+                }}>
+                    {parentTitle}
+                </h2>
+            )}
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {details.map((d, i) => {
+                    const isImage = typeof d === "object" && d.isImage;
+
+                    if (isImage) {
+                        return (
+                            <div key={i} style={{ display: 'flex', justifyContent: 'center', padding: '16px 0' }}>
+                                <img src={d.src} alt="Image" style={{ maxWidth: '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} />
+                            </div>
+                        );
+                    }
+
+                    const isVideo = typeof d === "object" && d.isVideo;
+                    if (isVideo) {
+                        return (
+                            <div key={i} style={{ display: 'flex', justifyContent: 'center', padding: '16px 0' }}>
+                                <video src={d.src} controls style={{ maxWidth: '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+                                    Browser Anda tidak mendukung tag video.
+                                </video>
+                            </div>
+                        );
+                    }
+
+                    const title = typeof d === "string" ? d : d.title;
+                    const note = typeof d === "object" ? d.note : null;
+
+                    return (
+                        <div
+                            key={i}
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '14px',
+                                padding: '16px',
+                                backgroundColor: '#ffffff',
+                                borderRadius: '10px',
+                                border: '1px solid #e8eaed',
+                                boxShadow: '0 1px 4px rgba(0,0,0,0.03)'
+                            }}
+                        >
+                            {/* Number */}
+                            <div style={{
+                                width: '32px',
+                                height: '32px',
+                                borderRadius: '8px',
+                                backgroundColor: '#00277f',
+                                color: '#ffffff',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontSize: '13px',
+                                fontWeight: 700,
+                                fontFamily: "'DM Sans', sans-serif",
+                                flexShrink: 0
+                            }}>
+                                {i + 1}
+                            </div>
+
+                            {/* Content */}
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                                <div style={{
+                                    fontWeight: 600,
+                                    fontSize: '14px',
+                                    lineHeight: 1.4,
+                                    color: '#1a1a2e',
+                                    fontFamily: "'DM Sans', sans-serif"
+                                }}>
+                                    {title}
+                                </div>
+                                {note && (
+                                    <div style={{
+                                        marginTop: '4px',
+                                        fontSize: '12px',
+                                        lineHeight: 1.4,
+                                        color: '#6b7280',
+                                        fontFamily: "'DM Sans', sans-serif",
+                                        fontStyle: typeof d === "object" && d.italicNote ? 'italic' : 'normal'
+                                    }}>
+                                        {note}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+
+            {footer && (
+                <div style={{
+                    marginTop: '20px',
+                    padding: '24px',
+                    backgroundColor: '#f8fafc',
+                    borderRadius: '12px',
+                    border: '1px solid #e2e8f0'
+                }}>
+                    <div style={{
+                        margin: 0,
+                        fontSize: '13px',
+                        lineHeight: 1.6,
+                        fontFamily: "'DM Sans', sans-serif",
+                        whiteSpace: 'pre-wrap',
+                        color: '#1e293b'
+                    }}
+                        dangerouslySetInnerHTML={{
+                            __html: footer
+                                .replace(/^(.*?)(?=\n\n\*)/s, '<strong style="font-weight: 700; color: #1e293b;">$1</strong>')
+                                .replace(/\*(.*?)$/g, '<span style="font-style: italic; font-weight: 400; color: #475569;">*$1</span>')
+                        }} />
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default DetailList;
