@@ -263,8 +263,25 @@ export const MENU_TREE_ID = [
         title: "Cara Pengajuan Online BAP Paspor Hilang/Rusak",
         desc: "Panduan pengajuan paspor secara online",
         iconSrc: iconOnlineHilang,
-        detail: [
-            { isImage: true, src: qrcodeImg }
+        children: [
+            {
+                id: "ketentuan-bap",
+                title: "Ketentuan Paspor Rusak/Hilang/Perubahan Data",
+                desc: "Ketentuan mengenai paspor rusak, hilang, atau perubahan data",
+                detail: [
+                    { title: "PASPOR RUSAK", note: "Paspor rusak meliputi sobek, berlubang, dicoret, basah, atau terlipat." },
+                    { title: "PASPOR HILANG", note: "Kehilangan paspor dapat terjadi akibat kelalaian dalam menjaga atau menyimpan paspor, maupun karena kejadian di luar kendali pemegang paspor." },
+                    { title: "PASPOR PERBEDAAN DATA", note: "Perbedaan data yang dimaksud antara lain meliputi nama, tempat atau tanggal lahir, jenis kelamin, maupun data lainnya yang tidak sesuai dengan dokumen pendukung." }
+                ]
+            },
+            {
+                id: "cara-pengajuan-bap-online",
+                title: "Cara Pengajuan BAP Online",
+                desc: "Panduan cara pengajuan BAP online",
+                detail: [
+                    { isImage: true, src: qrcodeImg }
+                ]
+            }
         ]
     },
     {
@@ -595,8 +612,25 @@ export const MENU_TREE_EN = [
         title: "How to apply online for Lost/damaged passport",
         desc: "Online passport application guide",
         iconSrc: iconOnlineHilang,
-        detail: [
-            { isImage: true, src: qrcodeImg }
+        children: [
+            {
+                id: "ketentuan-bap",
+                title: "Provisions for Damaged/Lost/Data Change Passports",
+                desc: "Provisions regarding damaged, lost, or data change passports",
+                detail: [
+                    { title: "DAMAGED PASSPORT", note: "A damaged passport includes being torn, perforated, scribbled on, wet, or folded." },
+                    { title: "LOST PASSPORT", note: "Loss of a passport can occur due to negligence in keeping or storing the passport, or due to events beyond the passport holder's control." },
+                    { title: "PASSPORT DATA DIFFERENCES", note: "Differences in data include names, places or dates of birth, gender, or other data that does not match supporting documents." }
+                ]
+            },
+            {
+                id: "cara-pengajuan-bap-online",
+                title: "How to Apply for BAP Online",
+                desc: "Guide on how to apply for BAP online",
+                detail: [
+                    { isImage: true, src: qrcodeImg }
+                ]
+            }
         ]
     },
     {
