@@ -5,7 +5,6 @@ import iconPekerjaStudi from "../assets/icons/pekerja_studi.png";
 import iconTutorial from "../assets/icons/tutorial.png";
 import iconOnlineHilang from "../assets/icons/online_hilang.png";
 import iconPengambilan from "../assets/icons/pengambilan.png";
-import tutorialMPaspor from "../assets/Tutorial M-Paspor.webm";
 import qrcodeImg from "../assets/qrcode.jpeg";
 
 export const SITE_TITLE_ID = "Klik-Info";
@@ -279,7 +278,7 @@ export const MENU_TREE_ID = [
                 title: "Pembuatan Akun",
                 desc: "Tutorial pembuatan akun M-Paspor",
                 detail: [
-                    { isVideo: true, src: tutorialMPaspor }
+                    { isVideo: true, src: "https://drive.google.com/file/d/1tHPV0SY-VLlCYvavEg1j6Ly0sIHwn3kV/view?usp=sharing" }
                 ]
             },
             {
@@ -611,7 +610,7 @@ export const MENU_TREE_EN = [
                 title: "Account Creation",
                 desc: "M-Paspor account creation tutorial",
                 detail: [
-                    { isVideo: true, src: "" }
+                    { isVideo: true, src: "https://drive.google.com/file/d/1tHPV0SY-VLlCYvavEg1j6Ly0sIHwn3kV/view?usp=sharing" }
                 ]
             },
             {

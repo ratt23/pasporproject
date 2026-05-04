@@ -81,6 +81,23 @@ const DetailList = ({ details, parentTitle, footer }) => {
 
                     const isVideo = typeof d === "object" && d.isVideo;
                     if (isVideo) {
+                        const isGoogleDrive = typeof d.src === 'string' && d.src.includes('drive.google.com');
+                        
+                        if (isGoogleDrive) {
+                            const embedUrl = d.src.replace(/\/view(\?.*)?$/, '/preview');
+                            return (
+                                <div key={i} style={{ display: 'flex', justifyContent: 'center', padding: '16px 0', width: '100%' }}>
+                                    <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: 0 }}>
+                                        <iframe 
+                                            src={embedUrl} 
+                                            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '8px', border: 'none', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }} 
+                                            allow="autoplay; fullscreen"
+                                        ></iframe>
+                                    </div>
+                                </div>
+                            );
+                        }
+
                         return (
                             <div key={i} style={{ display: 'flex', justifyContent: 'center', padding: '16px 0' }}>
                                 <video src={d.src} controls style={{ maxWidth: '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
