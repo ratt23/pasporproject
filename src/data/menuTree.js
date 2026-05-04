@@ -261,7 +261,7 @@ export const MENU_TREE_ID = [
     },
     {
         id: "pengajuan-online",
-        title: "Cara pengajuan online paspor Hilang/rusak",
+        title: "Cara Pengajuan Online BAP Paspor Hilang/Rusak",
         desc: "Panduan pengajuan paspor secara online",
         iconSrc: iconOnlineHilang,
         detail: [
